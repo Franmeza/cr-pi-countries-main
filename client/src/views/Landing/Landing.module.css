@@ -82,6 +82,14 @@
     text-align: center;
   }
   .toHomeButton{
-    margin-top: 120px;
+   margin-top: 200px;
+   
+  }
+  .toHomeButton span:after {
+    content: "\2708";
+    position:absolute;
+    opacity: 1;    
+    top: 0;    
+    right: -19px;   
   }
 }
