@@ -21,8 +21,8 @@
   animation: moverTitulo 1s infinite;
  font-family: 'Comic Neue', cursive;
  font-weight: 600;
-  font-size: 20px;  
-  padding: 20px;
+  font-size: 20px;   
+  padding: 20px ;
   width: 125px;
   transition: all 0.5s;
   cursor: pointer;
@@ -83,15 +83,17 @@
     text-align: center;
   }
   .toHomeButton{
-   margin-top: 200px;   
+   margin-top: 200px;
+   width: 135px;
+   
   }
   .toHomeButton span{
-    margin-right: 8px;
+    margin-right: 15px;
   }
   .toHomeButton span:after {
     content: "\2708";
     position:absolute;
-    opacity: 1;    
+    opacity: 1;       
     top: 0;    
     right: -25px;   
   }
