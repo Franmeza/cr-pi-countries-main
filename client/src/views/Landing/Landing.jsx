@@ -1,9 +1,18 @@
-
+import { useNavigate } from 'react-router-dom';
+import {landing, toHomeButton, landingTitle} from "./Landing.module.css"
 
 function Landing() {
+  const navigate = useNavigate()
+
   return (
-    <div>
-        <h1>Esto es la vista de Landing</h1>
+    <div className={landing}>
+      
+        <h1 className={landingTitle}>Ready to explore the world ?</h1>
+       
+        <button className={toHomeButton} onClick={()=> navigate('/home')}><span>Let's Go</span></button>
+
+       
+      
     </div>
   )
 }

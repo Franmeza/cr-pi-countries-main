@@ -1,0 +1,87 @@
+.landing {
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../assets/136072.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.toHomeButton {
+  display: inline-block;
+  border-radius: 50px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border: 2px solid #0197F6;
+  color:#134074;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  animation: moverTitulo 1s infinite;
+ font-family: 'Comic Neue', cursive;
+ font-weight: 600;
+  font-size: 20px;  
+  padding: 20px;
+  width: 125px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.toHomeButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;  
+  transition: 0.5s;
+}
+
+.toHomeButton span:after {
+  content: "\2708";
+  position:absolute;
+  opacity: 0; 
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.toHomeButton:hover {
+  background-color: #0197F6;
+
+}
+.toHomeButton:hover span {
+  padding-right: 25px;
+  color: white;
+}
+
+.toHomeButton:hover span:after {
+  color: white;
+  opacity: 1;
+  right: 0;
+}
+
+.landingTitle{
+  margin-top: 80px;  
+  font-family: 'Handlee', cursive;
+  color: #134074;
+  text-shadow:3px 3px 5px #FFF3E1  ;
+  transform-origin: 50% 50%;
+  font-size: 60px;
+}
+
+@keyframes moverTitulo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+@media (max-width: 600px) {
+  .landingTitle{
+    text-align: center;
+  }
+  .toHomeButton{
+    margin-top: 120px;
+  }
+}
