@@ -9,7 +9,7 @@ function Landing() {
       
         <h1 className={landingTitle}>Ready to explore the world ?</h1>
        
-        <button className={toHomeButton} onClick={()=> navigate('/home')}><span>Let's Go</span></button>
+        <button className={toHomeButton} onClick={()=> navigate('/home')}><span>Let´s Go</span></button>
 
        
       

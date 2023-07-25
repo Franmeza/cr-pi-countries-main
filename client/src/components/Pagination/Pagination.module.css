@@ -1,0 +1,26 @@
+.paginationButtons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.paginationButtons button {
+  background-color: #0197f6;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.paginationButtons button:hover {
+  background-color: #f24236;
+}
+
+.paginationButtons .pageSelected {
+  background-color: #f24236;
+  color: white;
+  font-weight: bold;
+}

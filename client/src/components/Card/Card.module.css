@@ -1,0 +1,28 @@
+.cardContainer{
+    border: 1px solid red;
+    border-radius: 10px;
+    display: flex;   
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+}
+.nameTitle{
+    text-align: center;
+    height: 50px;
+    margin: 0 0;
+    padding-bottom: -20px;
+}
+.cardContainer p{ 
+    text-align: center;
+    margin-top: 0;
+}
+
+.imageContainer{
+    text-align: center;      
+    margin: 20px 5px;
+}
+
+.imageContainer img{
+    margin-top: 0;
+    max-width: 80%;
+}

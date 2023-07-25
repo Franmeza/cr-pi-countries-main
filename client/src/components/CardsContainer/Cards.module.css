@@ -1,6 +1,8 @@
-.countriesContainer{
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    grid-gap: 10px;
+.countriesContainer {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-flow: dense;
+  grid-gap: 20px;
 }

@@ -1,0 +1,10 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.cardsPagination {
+  display: flex;
+  flex-direction: row-reverse;
+}
