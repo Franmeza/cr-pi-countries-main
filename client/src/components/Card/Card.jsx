@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { cardContainer, nameTitle, imageContainer } from "./Card.module.css";
-
+import {Link} from "react-router-dom"
 function Card({ name, continent, flagImage }) {
   return (
     <div className={cardContainer}>
       <div className={imageContainer}>
         <img height="150px" src={flagImage} alt={name} />
       </div>
-      <h3 className={nameTitle}>{name.toUpperCase()}</h3>
+      <Link to={"/detail"}><h3 className={nameTitle}>{name.toUpperCase()}</h3></Link>
       <p>{continent}</p>
     </div>
   );
