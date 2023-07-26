@@ -1,5 +1,28 @@
 .sidePanelContainer{
+    display: flex;
+    flex-direction: column;
     border: 2px solid black;
-    height: 100px;
-    margin-right: 20px;    
+    height: auto;
+    margin-right: 20px;
+    margin-left: 5px;
+    width: 150px;
+    height: 220px;    
 }
+
+.sidePanelContainer div{
+    margin-left: 10px;
+}
+
+.sidePanelContainer h4{
+    margin-bottom: 5px;
+}
+
+@media (max-width: 640px){
+    section img{
+      display: block;
+      margin-left: 15px;
+    }
+    .sidePanelContainer{
+        display: none;
+    }
+  }

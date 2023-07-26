@@ -5,18 +5,19 @@ import { fetchCountriesInfo } from "../../redux/actions";
 import { homeContainer, cardsPagination } from "./Home.module.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import filtersIcon from "../../assets/icon_menu.svg"
+import SidePanelMobile from "../../components/SidePanelMobile/SidePanelMobile";
 
 function Home() {
 
   const countries = useSelector((state) => state.countries);
-  
+  const [showPanel, setShowPanel] = useState(false)
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;  
   const totalPages =  Math.ceil(countries.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const countriesPerPage =  countries.slice(startIndex, endIndex)
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCountriesInfo());
@@ -26,11 +27,16 @@ function Home() {
     setCurrentPage(pageNumber);
   };
 
-
-  return (
+  const toggleFilterOptions = () =>{
+    
+    setShowPanel(!showPanel)
+  }
+    return (
     <div className={homeContainer}>
+      <span onClick={toggleFilterOptions}>Filter</span>
       <div className={cardsPagination}>
         <Cards countriesPerPage={countriesPerPage} />
+       { showPanel ? <SidePanelMobile/> : null}
         <SidePanel />
       </div>
       <Pagination
