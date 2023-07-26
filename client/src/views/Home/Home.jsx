@@ -1,16 +1,16 @@
 import Cards from "../../components/CardsContainer/Cards";
 import Pagination from "../../components/Pagination/Pagination";
 import SidePanel from "../../components/SidePanel/SidePanel";
-import { fetchCountriesInfo } from "../../redux/actions";
+import { fetchCountriesInfo, filterByContinent, orderByName } from "../../redux/actions";
 import { homeContainer, cardsPagination } from "./Home.module.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import filtersIcon from "../../assets/icon_menu.svg"
 import SidePanelMobile from "../../components/SidePanelMobile/SidePanelMobile";
 
 function Home() {
 
   const countries = useSelector((state) => state.countries);
+  
   const [showPanel, setShowPanel] = useState(false)
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;  
@@ -19,6 +19,7 @@ function Home() {
   const endIndex = startIndex + itemsPerPage;
   const countriesPerPage =  countries.slice(startIndex, endIndex)
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCountriesInfo());
   }, [dispatch])
@@ -27,17 +28,26 @@ function Home() {
     setCurrentPage(pageNumber);
   };
 
-  const toggleFilterOptions = () =>{
-    
+  const toggleFilterOptions = () =>{    
     setShowPanel(!showPanel)
   }
+
+  const filterCountriesByContinent = (continent) =>{    
+    dispatch(filterByContinent(continent))
+  }
+
+  const orderCountriesByName =(order)=>{
+    dispatch(orderByName(order))
+  }
+  
     return (
     <div className={homeContainer}>
       <span onClick={toggleFilterOptions}>Filter</span>
       <div className={cardsPagination}>
         <Cards countriesPerPage={countriesPerPage} />
        { showPanel ? <SidePanelMobile/> : null}
-        <SidePanel />
+        <SidePanel filterByContinent = {filterCountriesByContinent}
+        orderByName = {orderCountriesByName}/>
       </div>
       <Pagination
         handlePageChange={handlePageChange}

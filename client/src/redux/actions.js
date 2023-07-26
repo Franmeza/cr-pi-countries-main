@@ -2,6 +2,10 @@ import axios from "axios";
 
 export const FETCH_INFO = "FETCH_INFO";
 export const FILTER_COUNTRIES = "FILTER_COUNTRIES"
+export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT"
+export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY"
+export const ORDER_BY_NAME = "ORDER_BY_NAME"
+export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION"
 
 const URL = "http://localhost:3001/countries";
 
@@ -29,5 +33,19 @@ export const filterCountries = (name) => async (dispatch) =>{
     });
   } catch (error) {
     return {error: error.message};
+  }
+}
+
+export const filterByContinent = (continent)=>{  
+  return{
+    type: FILTER_BY_CONTINENT,
+    payload: continent
+  }
+}
+
+export const orderByName = (order) =>{
+  return{
+    type: ORDER_BY_NAME,
+    payload: order
   }
 }

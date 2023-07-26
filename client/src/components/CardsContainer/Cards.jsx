@@ -20,6 +20,7 @@ function Cards({ countriesPerPage }) {
         }) => (
           <Card
             key={id}
+            id = {id}
             name={name}
             flagImage={flagImage}
             continent={continent}

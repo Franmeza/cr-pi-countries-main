@@ -7,11 +7,12 @@ const countriesLoader = async (axios, Country) => {
     const countries = response.data;
 
     const countriesData = countries.map((country) => {
+      
       return {
         id: country.cca3,
         name: country.name.common,
         flagImage: country.flags.png,
-        coatOfarms: country.coatOfArms.png,
+        coatOfArms: country.coatOfArms.png,
         continent: country.continents[0],
         capital: country.capital ? country.capital[0]:'-',
         subregion: country.subregion,

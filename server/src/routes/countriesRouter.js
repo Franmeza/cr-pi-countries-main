@@ -25,7 +25,7 @@ countriesRouter.get("/:countryId", async (req, res) => {
     const country = await getCountryById(countryId);
     res.status(200).json(country);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).send('Country does not exist');
   }
 });
 

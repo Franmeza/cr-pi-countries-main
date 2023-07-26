@@ -26,12 +26,12 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull:false,
     },
-    coatOfArms:{
-      type: DataTypes.STRING,
-    },
     continent: {
       type: DataTypes.STRING,
       allowNull:false,
+    },
+    coatOfArms:{
+      type: DataTypes.STRING,
     },
     capital: {
       type: DataTypes.STRING,
