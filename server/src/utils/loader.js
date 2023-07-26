@@ -11,6 +11,7 @@ const countriesLoader = async (axios, Country) => {
         id: country.cca3,
         name: country.name.common,
         flagImage: country.flags.png,
+        coatOfarms: country.coatOfArms.png,
         continent: country.continents[0],
         capital: country.capital ? country.capital[0]:'-',
         subregion: country.subregion,
