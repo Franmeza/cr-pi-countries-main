@@ -21,7 +21,8 @@ function NavBar() {
          
       <ul>
         <li><Link className={link} to="/home">HOME</Link></li>
-        <li><Link className={link} to="/create">FORM</Link></li>        
+        <li><Link className={link} to="/activities">ACTIVITIES</Link></li>        
+        <li><Link className={link} to="/create"></Link>CREATE ACTIVITIES</li>        
       </ul>
       
       <SearchBar onSearch={onSearch}/>     

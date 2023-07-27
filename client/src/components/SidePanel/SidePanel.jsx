@@ -1,13 +1,23 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import { sidePanelContainer } from "./SidePanel.module.css";
 import { fetchCountriesInfo } from "../../redux/actions";
-import { useDispatch } from "react-redux";
-function SidePanel({ filterByContinent, orderByName }) {
+import { useDispatch, useSelector } from "react-redux";
+function SidePanel({
+  filterByContinent,
+  filterByActivity,
+  orderByName,
+  orderByPopulation,
+}) {
+  const activities = useSelector((state) => state.activities);
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch(); 
+  let activitiesSet = new Set();
 
-  const selectChange = (e) => {
+  activities.forEach((element) => {
+    activitiesSet.add(element.name);
+  });
+
+  const handleContinentSelected = (e) => {
     const optionSelected = e.target.value;
     if (optionSelected === "Continent") {
       dispatch(fetchCountriesInfo());
@@ -16,19 +26,29 @@ function SidePanel({ filterByContinent, orderByName }) {
     }
   };
 
-  const handleOrderName= (e)=>{
-   
-    console.log(e);
-    const order = e.target.value
-    console.log(e.currentTarget.value);
-    orderByName(order)
-  }
+  const handleActivitySelected = (e) => {
+    const activitySelected = e.target.value;
+    if (activitySelected === "activities") {
+      dispatch(fetchCountriesInfo());
+    } else {
+      filterByActivity(activitySelected);
+    }
+  };
+
+  const handleOrderName = (e) => {
+    orderByName(e.target.value);
+  };
+  const handleOrderPopulation = (e) => {
+    orderByPopulation(e.target.value);
+  };
+
   return (
     <section>
       <div className={sidePanelContainer}>
         <div>
           <h4>Filter by:</h4>
-          <select name="orderByContinent" onChange={selectChange}>
+          <label htmlFor="continents">Continents</label>
+          <select name="orderByContinent" onChange={handleContinentSelected}>
             <option value="Continent">All Continents</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
@@ -38,20 +58,27 @@ function SidePanel({ filterByContinent, orderByName }) {
             <option value="Oceania">Oceania</option>
           </select>
 
-          <select name="orderByActiviy">
-            <option value="Activities">Activities</option>
+          <label htmlFor="activities">Activities</label>
+          <select name="orderByActiviy" onChange={handleActivitySelected}>
+            <option value="activities">All Activities</option>
+            {Array.from(activitiesSet).map((activity, index) => (
+              <option key={index} value={activity}>
+                {activity}
+              </option>
+            ))}
           </select>
         </div>
 
         <div>
           <h4>Order by Name</h4>
           <select name="orderByName" onChange={handleOrderName}>
+            <option value="">Select order</option>
             <option value="A">Ascending</option>
             <option value="D">Descending</option>
           </select>
 
           <h4>Order by Population</h4>
-          <select name="orderBy">
+          <select name="orderBy" onChange={handleOrderPopulation}>
             <option value="A">Ascending</option>
             <option value="D">Descending</option>
           </select>
@@ -63,8 +90,9 @@ function SidePanel({ filterByContinent, orderByName }) {
 
 SidePanel.propTypes = {
   filterByContinent: PropTypes.func.isRequired,
+  filterByActivity: PropTypes.func.isRequired,
   orderByName: PropTypes.func.isRequired,
-
+  orderByPopulation: PropTypes.func.isRequired,
 };
 
 export default SidePanel;

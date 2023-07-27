@@ -3,8 +3,7 @@ import Card from "../Card/Card";
 import PropTypes from "prop-types";
 
 function Cards({ countriesPerPage }) {
-  // const filteredCountries = useSelector((state) => state.countries);
-
+  
   return (
     <div className={countriesContainer}>
       {countriesPerPage.map(
