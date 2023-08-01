@@ -8,8 +8,8 @@ activitiesRouter.post("/", async (req, res) => {
   const { name, difficulty, duration, season, countries } = req.body;
 
   try {
-    if(!name || !difficulty || !duration || !season || !countries) 
-    return res.status(400).json({error: "Some information is missing"})
+    if(!name || !difficulty || !season || !countries) 
+    res.status(400).send( "Some information is missing")
 
     const newActivity = await createActivities({
       name,

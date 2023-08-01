@@ -2,15 +2,15 @@ import Cards from "../../components/CardsContainer/Cards";
 import Pagination from "../../components/Pagination/Pagination";
 import SidePanel from "../../components/SidePanel/SidePanel";
 import {
-  fetchCountriesInfo,
+  
   filterByContinent,
   filterByActivity,
   orderByName,
   orderByPopulation,
-  getActivities
+  
 } from "../../redux/actions";
 import { homeContainer, cardsPagination } from "./Home.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SidePanelMobile from "../../components/SidePanelMobile/SidePanelMobile";
 
@@ -26,11 +26,6 @@ function Home() {
   const endIndex = startIndex + itemsPerPage;
   const countriesPerPage = countries.slice(startIndex, endIndex);
   const dispatch = useDispatch(); 
-
-  useEffect(() => {
-    dispatch(fetchCountriesInfo());
-    dispatch(getActivities())
-  }, [dispatch]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);

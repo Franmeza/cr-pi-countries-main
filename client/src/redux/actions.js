@@ -38,7 +38,7 @@ export const getActivities =()=>async(dispatch)=>{
 export const filterCountries = (name) => async (dispatch) =>{
   try {
     
-    const { data } = await axios.get(`${URL}?name=${name}`) 
+    const { data } = await axios.get(`${URL}/countries?name=${name}`) 
     
     return dispatch({
       type: FILTER_COUNTRIES,

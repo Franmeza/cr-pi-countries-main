@@ -63,25 +63,25 @@ export default function reducer(state = initialState, { type, payload }) {
 
     case ORDER_BY_NAME:
       payload === "A"
-        ? state.allCountries.sort((a, b) => {
+        ? state.countries.sort((a, b) => {
             if (a.name > b.name) return 1;
             if (b.name > a.name) return -1;
             return 0;
           })
-        : state.allCountries.sort((a, b) => {
+        : state.countries.sort((a, b) => {
             if (a.name > b.name) return -1;
             if (b.name > a.name) return 1;
             return 0;
           });
       return {
         ...state,
-        countries: state.allCountries,
+        countries: state.countries,
       };
 
     case ORDER_BY_POPULATION:
       return {
         ...state,
-        countries: state.allCountries.sort((a, b) => {
+        countries: state.countries.sort((a, b) => {
           if (payload === "A") return a.population - b.population;
           if (payload === "D") return b.population - a.population;
           return 0;
