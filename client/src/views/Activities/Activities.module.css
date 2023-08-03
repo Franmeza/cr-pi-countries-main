@@ -1,0 +1,58 @@
+
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 86vh;
+}
+.activityCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 1rem;
+  width: 250px;
+  padding: 20px 0px;
+  margin-right: 1.5rem;
+}
+.activityCard p {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+.circleContainer {
+  text-align: center;
+  position: relative;
+}
+.circleContainer h1 {
+  z-index: 2;
+  position: relative;
+}
+.circle {
+  width: 70px;
+  height: 70px;
+  /* background-color:  ;  */
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 1.7rem;
+  z-index: 1;
+}
+.reloj {
+  font-size: 20px;
+  position: relative;
+  bottom: 0.5rem;
+  right: -0.5rem;
+}
+/* .activityCard p:before{
+    content: "\1F552";
+    display: inline-block;
+    position: relative;
+} */
+@media (max-width: 640px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}

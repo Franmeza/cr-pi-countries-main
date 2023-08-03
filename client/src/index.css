@@ -11,10 +11,17 @@
   -webkit-text-size-adjust: 100%;
 }
 
-html {
+/* html {
   padding: 0rem;
   margin: 0rem;
-}
+  size: 100%;
+} */
 body {
   margin: 0rem;
+  /* height: 100%; */
+  /* background-image: url("./assets/136072.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; */
 }
+/* *{ border: 1px solid green;} */

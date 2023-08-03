@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { detailContainer,allDetail, imageContainer, infoContainer } from "./Detail.module.css";
 import axios from "axios";
 
 function Detail() {
@@ -12,7 +13,7 @@ function Detail() {
       .then(({ data }) => {
         if (data.name) {
           setCountryDetails({
-            name: data.name,
+            name: data.name.toUpperCase(),
             coatOfArms: data.coatOfArms,
             continent: data.continent,
             capital: data.capital,
@@ -29,41 +30,67 @@ function Detail() {
   }, [id]);
 
   return (
-    <div>
-      <img src={countryDetails.coatOfArms} alt="imagen" />
-      <section>
-        <h2>
-          <strong>NAME</strong>
-        </h2>
-        <h2>{countryDetails.name}</h2>
-        <h2>
-          <strong>Continent: </strong>
-          {countryDetails.continent}
-        </h2>
-        <h2>
-          <strong>Capital: </strong>
-          {countryDetails.capital}
-        </h2>
-        <h2>
-          <strong>Subregion: </strong>
-          {countryDetails.subregion}
-        </h2>
-        <h2>
-          <strong>Area: </strong>
-          {countryDetails.area}
-        </h2>
-        <h2>
-          <strong>Population: </strong>
-          {countryDetails.population}
-        </h2>
-        <h2><strong>Activites: </strong>
-        {countryDetails.activities?.length !== 0 ? 
-        <span>
-          {countryDetails.activities?.map((activity) => {
-            return activity.name + ", ";
-          })}
-        </span>:"No activities registered"}</h2>
-      </section>
+    <div className={allDetail}>
+      <div className={detailContainer}>
+        <div className={imageContainer}>
+          <img
+          
+            src={countryDetails.coatOfArms}
+            alt="imagen"
+          />
+          <h3>{countryDetails.name}</h3>
+        </div>
+        <div className={infoContainer}>
+          <div>
+            <span>
+              <strong>Continent: </strong>
+            </span>
+            <p>
+              {countryDetails.continent}
+            </p>
+            <span>
+              <strong>Capital: </strong>
+            </span>
+            <p>
+              {countryDetails.capital}
+            </p>
+            <span>
+              <strong>Subregion: </strong>
+            </span>
+            <p>
+              {countryDetails.subregion}
+            </p>
+          </div>
+        <div>
+          <span>
+            <strong>Area: </strong>
+          </span>
+          <p>
+            {countryDetails.area}
+          </p>
+          <span>
+            <strong>Population: </strong>
+          </span>
+          <p>
+            {countryDetails.population}
+          </p>
+          <span>
+            <strong>Activites: </strong>
+          </span>
+          <p>
+            {countryDetails.activities?.length !== 0 ? (
+              <span>
+                {countryDetails.activities?.map((activity) => {
+                  return activity.name + ", ";
+                })}
+              </span>
+            ) : (
+              "No activities registered"
+            )}
+          </p>
+        </div>
+        </div>
+      </div>
     </div>
   );
 }

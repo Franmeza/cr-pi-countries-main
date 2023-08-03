@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectedCountriesContainer, countryDiv } from "./Form.module.css";
 
-const seasonsOptions = ["Spring", "Summer", "Autumn", "Winter"];
+const seasonsOptions = ["Spring", "Summer", "Autum", "Winter"];
 const URL = "http://localhost:3001/activities";
 
 const Form = () => {

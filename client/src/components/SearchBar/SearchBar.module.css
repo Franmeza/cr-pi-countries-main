@@ -1,0 +1,18 @@
+.searchBar input {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border-radius: 1rem;
+}
+
+@media (max-width:640px){
+    .searchBar input{       
+        text-align: left;       
+        margin: 0;
+        margin-bottom: 10px;
+        padding: 14px;        
+    }
+}

@@ -4,6 +4,8 @@ import { paginationButtons, pageSelected } from "./Pagination.module.css";
 function Pagination({ handlePageChange, totalPages, currentPage }) {
     
   return (
+    
+
     <div className={paginationButtons}>
       {Array.from({ length: totalPages }).map((_, index) => (
         <button
@@ -15,6 +17,7 @@ function Pagination({ handlePageChange, totalPages, currentPage }) {
         </button>
       ))}
     </div>
+   
   );
 }
 

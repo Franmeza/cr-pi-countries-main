@@ -5,7 +5,7 @@ import { Home, Landing, Detail, Form } from "./views";
 import { useDispatch } from "react-redux";
 import NavBar from "./components/NavBar/NavBar";
 import Activities from "./views/Activities/Activities";
-
+import './App.css';
 
 function App() {
   const { pathname } = useLocation();
@@ -17,7 +17,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="app">
+    <div className="App">
       {pathname !== "/" && <NavBar />}
       <Routes>
         <Route path="/" element={<Landing />} />

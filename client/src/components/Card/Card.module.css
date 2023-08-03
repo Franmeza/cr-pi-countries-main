@@ -1,10 +1,14 @@
 .cardContainer{
-    border: 1px solid red;
+    border: 1px solid white;
+    background-color: white;
     border-radius: 10px;
+    /* justify-content: space-around; */
+    
     display: flex;   
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column;     
+    
     width: 250px;
+    height:300px ;
 }
 .nameTitle{
     text-align: center;
@@ -12,18 +16,35 @@
     margin: 0 0;
     padding-bottom: -20px;
 }
-.cardContainer p{ 
+.cardContainer p { 
     text-align: center;
-    margin-top: 0;
+    margin:5px 0 10px;
+
+    padding: 0;
+}
+.cardContainer h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .imageContainer{
-    text-align: center;      
-    margin: 20px 5px;
+    
+    text-align: center;
+ 
 }
 
 .imageContainer img{
-    margin-top: 0;
-    max-width: 80%;
+margin-bottom: 5px;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+ box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2)
    
+}
+.link{
+    text-decoration: none;
+}
+.cardContainer:hover{
+    transform: scale(1.1);
 }

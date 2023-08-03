@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-
+import {searchBar} from "./SearchBar.module.css"
 function SearchBar({ onSearch }) {
   const [name, setName] = useState(""); 
 
@@ -11,13 +11,14 @@ function SearchBar({ onSearch }) {
   }
 
   return (
-    <div>
+    <div className={searchBar}>
       <input
         type="text"
         value={name}
         placeholder="search by name"
         onChange={handleChange}
       />
+    
     </div>
   );
 }
