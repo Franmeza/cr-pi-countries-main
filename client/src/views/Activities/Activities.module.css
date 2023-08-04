@@ -1,10 +1,10 @@
-
-
 .mainContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 86vh;
+  gap: 1.5rem;
+  /* height: 86vh; */
+ 
 }
 .activityCard {
   display: flex;
@@ -14,8 +14,9 @@
   background-color: white;
   border-radius: 1rem;
   width: 250px;
-  padding: 20px 0px;
-  margin-right: 1.5rem;
+  padding: 20px 0px;  
+  margin-bottom: 1rem;
+
 }
 .activityCard p {
   font-size: 2.5rem;

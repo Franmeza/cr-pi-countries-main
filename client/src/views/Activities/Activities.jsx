@@ -1,4 +1,6 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getActivities } from "../../redux/actions";
 import {
   mainContainer,
   activityCard,
@@ -17,6 +19,11 @@ const getRamdonColor = () => {
 };
 function Activities() {
   const activities = useSelector((state) => state.allActivities);
+  const dispatch = useDispatch()
+
+  useEffect(() => {  
+    dispatch(getActivities())
+  }, [dispatch]);
 
   return (
     <div className={mainContainer}>
