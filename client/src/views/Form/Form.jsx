@@ -88,8 +88,8 @@ const Form = () => {
     e.preventDefault();
     axios
       .post(URL, formData)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error.response.data));
+      .then((response) => alert(response.data))
+      .catch((error) => alert(error.response.data));   
   };
 
   return (

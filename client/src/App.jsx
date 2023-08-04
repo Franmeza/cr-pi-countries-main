@@ -7,7 +7,8 @@ import NavBar from "./components/NavBar/NavBar";
 import Activities from "./views/Activities/Activities";
 import './App.css';
 
-function App() {
+
+function App() {    
   const { pathname } = useLocation();
     const dispatch = useDispatch(); 
 

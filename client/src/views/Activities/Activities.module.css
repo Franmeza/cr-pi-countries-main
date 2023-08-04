@@ -1,4 +1,4 @@
-.mainContainer {
+.activitiesMainContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +52,7 @@
     position: relative;
 } */
 @media (max-width: 640px) {
-  .mainContainer {
+  .activitiesMainContainer {
     display: flex;
     flex-direction: column;
   }

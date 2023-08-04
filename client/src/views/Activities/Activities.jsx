@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getActivities } from "../../redux/actions";
 import {
-  mainContainer,
+  activitiesMainContainer,
   activityCard,
   reloj,
   circleContainer,
@@ -26,7 +26,7 @@ function Activities() {
   }, [dispatch]);
 
   return (
-    <div className={mainContainer}>
+    <div className={activitiesMainContainer}>
       {activities.map(({ name, difficulty, duration, season }, index) => {
         return (
           <div className={activityCard} key={index}>
