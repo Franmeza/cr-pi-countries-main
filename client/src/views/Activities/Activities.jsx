@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getActivities } from "../../redux/actions";
 import {
@@ -19,14 +19,19 @@ const getRamdonColor = () => {
 };
 function Activities() {
   const activities = useSelector((state) => state.allActivities);
+  const [errorMessage, setErrorMessage] = useState("")
   const dispatch = useDispatch()
-
+  
   useEffect(() => {  
     dispatch(getActivities())
+    .catch(error => {
+      setErrorMessage(error.message)
+    } )
   }, [dispatch]);
 
   return (
     <div className={activitiesMainContainer}>
+      {errorMessage && <p>{errorMessage}</p>}
       {activities.map(({ name, difficulty, duration, season }, index) => {
         return (
           <div className={activityCard} key={index}>

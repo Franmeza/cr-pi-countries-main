@@ -17,7 +17,7 @@
 .pagination{
   display: flex;
   flex-direction: row; 
-  justify-content: flex-end;
+  justify-content: center;
   margin: 0.5rem 5.5rem;
 }
 

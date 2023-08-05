@@ -1,8 +1,8 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import {fetchCountriesInfo,getActivities} from "./redux/actions"
-import { useEffect } from "react";
+// import {fetchCountriesInfo,getActivities} from "./redux/actions"
+// import { useEffect } from "react";
 import { Home, Landing, Detail, Form } from "./views";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import NavBar from "./components/NavBar/NavBar";
 import Activities from "./views/Activities/Activities";
 import './App.css';
@@ -10,12 +10,12 @@ import './App.css';
 
 function App() {    
   const { pathname } = useLocation();
-    const dispatch = useDispatch(); 
+    // const dispatch = useDispatch(); 
 
-  useEffect(() => {
-    dispatch(fetchCountriesInfo());
-    dispatch(getActivities())
-  }, [dispatch]);
+//   useEffect(() => {
+//     dispatch(fetchCountriesInfo());
+//     dispatch(getActivities())
+//   }, [dispatch]);
 
   return (
     <div className="App">

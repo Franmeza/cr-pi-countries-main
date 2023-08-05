@@ -10,7 +10,7 @@ function SidePanel({
 }) {
   const activities = useSelector((state) => state.activities);
   const dispatch = useDispatch();
-
+ 
   let activitiesSet = new Set();
 
   activities.forEach((element) => {
@@ -91,8 +91,8 @@ function SidePanel({
           <br />
           <select name="orderBy" onChange={handleOrderPopulation}>
             <option value="selectOrder">Select order</option>
-            <option value="A">A-Z</option>
-            <option value="D">Z-A</option>
+            <option value="A">Less people</option>
+            <option value="D">More people</option>
           </select>
         </div>
     </section>

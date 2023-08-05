@@ -9,7 +9,7 @@ activitiesRouter.post("/", async (req, res) => {
 
   try {
     if(!name || !difficulty || !season || !countries) 
-    res.status(400).send( "Some information is missing")
+    return res.status(400).send( "Some information is missing")
 
     const newActivity = await createActivities({
       name,
@@ -19,7 +19,7 @@ activitiesRouter.post("/", async (req, res) => {
       countries,
     });
 
-    res.status(200).json(newActivity);
+    res.status(200).send('Acitivity created succesfully');
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -28,10 +28,11 @@ activitiesRouter.post("/", async (req, res) => {
 activitiesRouter.get("/", async (req, res) => {
   try {
     const activities = await getActivities();
-    // if(activities.length === 0) throw Error ("No activities to display")
+    if(activities.length === 0) 
+     res.status(400).send( "No activities to display")
     res.status(200).json(activities);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+  } catch (error) {    
+    res.status(400).json( error.message );
   }
 });
 

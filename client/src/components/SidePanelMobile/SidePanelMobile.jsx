@@ -99,8 +99,8 @@ function SidePanelMobile({
           <br />
           <select name="orderBy" onChange={handleOrderPopulation}>
             <option value="selectOrder">Select order</option>
-            <option value="A">A-Z</option>
-            <option value="D">Z-A</option>
+            <option value="A">Less people</option>
+            <option value="D">More people</option>
           </select>
         </div>
       </div>

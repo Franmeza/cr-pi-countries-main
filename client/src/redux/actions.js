@@ -11,8 +11,8 @@ export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION"
 const URL = "http://localhost:3001";
 
 export const fetchCountriesInfo = () => async (dispatch) => {
-  try {
-    
+  try {    
+  
     const { data } = await axios.get(`${URL}/countries`)
     return dispatch({
       type: FETCH_INFO,
@@ -31,7 +31,7 @@ export const getActivities =()=>async(dispatch)=>{
       payload: data
     })
   } catch (error) {
-    throw new Error({error: error.message})
+   throw new Error(error.response.data); 
   }
 }
 
