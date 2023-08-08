@@ -55,6 +55,7 @@ const Form = () => {
 
   const handleSelectedCountries = (e) => {
     const value =  e.target.value   
+    if(value ==="") return
     setFormData({
       ...formData,
       countries: [...formData.countries, value],
@@ -157,6 +158,7 @@ const Form = () => {
             id="country"
             onChange={handleSelectedCountries}
           >
+            <option value="">Select country/ies</option>
             {countries.map((country, index) => (
               <option key={index} value={country.id}>
                 {country.name}

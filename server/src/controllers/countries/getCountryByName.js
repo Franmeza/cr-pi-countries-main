@@ -17,7 +17,7 @@ const getCountryByName = async (query) => {
       },
     },
   });
-  if (!countries) throw Error("Country name does not exist");
+  // if (countries.length === 0) throw Error("Country name does not exist");
   return countries;
 };
 

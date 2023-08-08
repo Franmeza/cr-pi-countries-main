@@ -1,19 +1,31 @@
 .navBar {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: center; 
   background-color: #0197f6;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
-  padding: 1rem;
+  gap: 7rem;  
 }
 
-ul {
+.navBar img{
+  margin-left: 2.5rem;
+margin-top: 0.8rem;
+}
+ul{
   display: flex;
+  gap: 0.5rem;
+}
+ul {
+  /* display: flex; */
+
+
 }
 
 li {
   list-style: none;
+  font-family: 'Comic Neue';
+  font-weight: 700;
+  
 }
 
 .link {
@@ -23,18 +35,28 @@ li {
   color: white;
   text-decoration: none;
   font-size: 17px;
+  border-radius: 0.5rem;
+}
+.navBar .searchBar{
+float: right;
 }
 
 @media screen and (max-width: 640px) {
   .navBar {
     display: flex;
     flex-direction: column;
+    
+    gap: 0;
+  }
+  .navBar img{
+    display: none;
   }
   ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0;
+    margin-top: 1.5rem;
   }
 
   li {

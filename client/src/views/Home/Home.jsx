@@ -21,7 +21,7 @@ function Home() {
   const [displayPanel, setDisplayPanel] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [aux, setAux] = useState(false);
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
   const itemsPerPage = 12;
   const totalPages = Math.ceil(countries.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -30,12 +30,16 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoader(true)
-    dispatch(getActivities());
-    dispatch(fetchCountriesInfo())
-    .then(res => res && setTimeout(()=>{
-      setLoader(false)},1500)  )
-    
+    setLoader(true);
+    const begin = async () => {
+      await dispatch(fetchCountriesInfo());
+      setTimeout(() => {
+        setLoader(false);
+      }, 1500);
+      await dispatch(getActivities());
+    };
+    begin();
+    // .then(res => res &&
   }, [dispatch]);
 
   const handlePageChange = (pageNumber) => {
@@ -69,31 +73,36 @@ function Home() {
   };
 
   return (
-  <> 
-   {loader && < Loader/>} 
-    <div className={homeContainer}>
-      <span onClick={toggleFilterOptions}>Filter</span>
-      {countries.length !== 250 ? (
-        <span onClick={clearFilter}>Clear filter</span>
-      ) : null}
-      <div className={cardsPagination}>
-        <Cards countriesPerPage={countriesPerPage} />
-        {displayPanel ? (
-          <SidePanelMobile
+    <>
+      {loader && <Loader />}
+      <div className={homeContainer}>
+        <span onClick={toggleFilterOptions}>Filter</span>
+        {countries.length !== 250 ? (
+          <span onClick={clearFilter}>Clear filter</span>
+        ) : null}
+
+        <div>{countries.length === 0 && <p>No countries to display, please try with another name</p>}</div>
+
+        <div className={cardsPagination}>
+          <Cards countriesPerPage={countriesPerPage} />
+
+          {displayPanel ? (
+            <SidePanelMobile
+              filterByContinent={filterCountriesByContinent}
+              filterByActivity={filterCountriesByActivity}
+              orderByName={orderCountriesByName}
+              orderByPopulation={orderCountriesByPopulation}
+              displayPanel={displayPanel}
+              setDisplayPanel={setDisplayPanel}
+            />
+          ) : null}
+          <SidePanel
             filterByContinent={filterCountriesByContinent}
             filterByActivity={filterCountriesByActivity}
             orderByName={orderCountriesByName}
             orderByPopulation={orderCountriesByPopulation}
-            displayPanel={displayPanel}
-            setDisplayPanel={setDisplayPanel}
           />
-        ) : null}
-        <SidePanel
-          filterByContinent={filterCountriesByContinent}
-          filterByActivity={filterCountriesByActivity}
-          orderByName={orderCountriesByName}
-          orderByPopulation={orderCountriesByPopulation}
-        />
+        </div>
       </div>
       <div className={pagination}>
         <Pagination
@@ -102,7 +111,6 @@ function Home() {
           currentPage={currentPage}
         />
       </div>
-    </div>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { detailContainer,allDetail, imageContainer, infoContainer } from "./Detail.module.css";
+import { detailContainer,allDetail, imageContainer, infoContainer} from "./Detail.module.css";
 import axios from "axios";
 
 function Detail() {

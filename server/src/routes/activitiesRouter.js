@@ -8,8 +8,8 @@ activitiesRouter.post("/", async (req, res) => {
   const { name, difficulty, duration, season, countries } = req.body;
 
   try {
-    if(!name || !difficulty || !season || !countries) 
-    return res.status(400).send( "Some information is missing")
+    if (!name || !difficulty || !season || !countries)
+      return res.status(400).send("Some information is missing");
 
     const newActivity = await createActivities({
       name,
@@ -19,7 +19,7 @@ activitiesRouter.post("/", async (req, res) => {
       countries,
     });
 
-    res.status(200).send('Acitivity created succesfully');
+    res.status(200).send("Acitivity created succesfully");
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -28,11 +28,14 @@ activitiesRouter.post("/", async (req, res) => {
 activitiesRouter.get("/", async (req, res) => {
   try {
     const activities = await getActivities();
-    if(activities.length === 0) 
-     res.status(400).send( "No activities to display")
-    res.status(200).json(activities);
-  } catch (error) {    
-    res.status(400).json( error.message );
+    if (activities.length === 0) {
+      res.status(400).send("No activities to display");
+    } else {
+      res.status(200).json(activities);
+    }
+  } catch (error) {
+    res.status(400).json(error.message);
+    console.log(error.message);
   }
 });
 

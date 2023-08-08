@@ -3,7 +3,6 @@ import Card from "../Card/Card";
 import PropTypes from "prop-types";
 
 function Cards({ countriesPerPage }) {
-  
   return (
     <div className={countriesContainer}>
       {countriesPerPage.map(
@@ -19,7 +18,7 @@ function Cards({ countriesPerPage }) {
         }) => (
           <Card
             key={id}
-            id = {id}
+            id={id}
             name={name}
             flagImage={flagImage}
             continent={continent}

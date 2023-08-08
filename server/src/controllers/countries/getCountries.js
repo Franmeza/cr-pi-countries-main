@@ -13,6 +13,7 @@ const getCountries = async () =>{
     });
    
     return countries
+   
 }
 
 module.exports = getCountries;

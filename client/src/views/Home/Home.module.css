@@ -2,9 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   /* margin-left: 5rem; */
   width: 100%;
  
+}
+.homeContainer p{
+  text-align: center;
 }
 .homeContainer span{
  display: none;

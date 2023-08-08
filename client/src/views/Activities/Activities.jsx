@@ -13,7 +13,7 @@ import Stars from "../../components/ActivityDifficulty/Stars";
 
 // import PropTypes from 'prop-types'
 const getRamdonColor = () => {
-  const colorClasses = ['#134074', '#FFC759', '#0197F6', '#1AFFD5', '#F24236'];
+  const colorClasses = ['#204875', '#FFC759', '#0197F6', '#1AFFD5', '#F24236'];
   const randomIndex = Math.floor(Math.random() * colorClasses.length);
   return colorClasses[randomIndex];
 };
@@ -36,8 +36,8 @@ function Activities() {
         return (
           <div className={activityCard} key={index}>
             <div className={circleContainer}>
-              <h1>{name}</h1>
               <div className={circle} style={{backgroundColor: getRamdonColor()}}></div>
+              <h1>{name}</h1>
             </div>
             <div>
               <Stars filled={difficulty >= 1} />

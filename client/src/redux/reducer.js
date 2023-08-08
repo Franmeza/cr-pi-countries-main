@@ -36,6 +36,7 @@ export default function reducer(state = initialState, { type, payload }) {
       return { ...state, allActivities: payload, activities: payload };
 
     case FILTER_COUNTRIES:
+      
       return { ...state, countries: payload };
 
     case FILTER_BY_CONTINENT:
@@ -51,15 +52,7 @@ export default function reducer(state = initialState, { type, payload }) {
             return country.continent === payload;
           }
         }),
-      };
-
-    // case FILTER_BY_ACTIVITY:
-    //   return {
-    //     ...state,
-    //     countries: state.allCountries.filter((country)=>{
-    //       cou
-    //     })
-    //   }
+      }; 
 
     case ORDER_BY_NAME:
       payload === "A"

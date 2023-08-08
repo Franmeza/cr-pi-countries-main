@@ -9,6 +9,15 @@
   background-position: center center;
 }
 
+.landingTitle{
+  margin-top: 80px;  
+  font-family: 'Handlee', cursive;
+  color: #134074;
+  text-shadow:3px 3px 5px #FFF3E1  ;
+  transform-origin: 50% 50%;
+  font-size: 60px;
+}
+
 .toHomeButton {
   display: inline-block;
   border-radius: 50px;
@@ -60,14 +69,6 @@
   right: 0;
 }
 
-.landingTitle{
-  margin-top: 80px;  
-  font-family: 'Handlee', cursive;
-  color: #134074;
-  text-shadow:3px 3px 5px #FFF3E1  ;
-  transform-origin: 50% 50%;
-  font-size: 60px;
-}
 
 @keyframes moverTitulo {
   0%, 100% {

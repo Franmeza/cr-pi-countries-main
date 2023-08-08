@@ -10,11 +10,14 @@
 
 .sidePanelContainer select {
   padding: 0.3rem 1rem 0.3rem 0.7rem;
-  font-family: system-ui;
+  font-family: 'Handlee';
   border-radius: 0.5rem;
+  
   border: 1px solid #cfd3d4;
 }
-
+/* .sidePanelContainer select option:hover{  
+  background-color: lightgray;
+} */
 .sidePanelContainer div {
   margin-left: 10px;
 }
