@@ -37,7 +37,7 @@ function Activities() {
           <div className={activityCard} key={index}>
             <div className={circleContainer}>
               <div className={circle} style={{backgroundColor: getRamdonColor()}}></div>
-              <h1>{name}</h1>
+              <h1>{name.toUpperCase()}</h1>
             </div>
             <div>
               <Stars filled={difficulty >= 1} />
@@ -46,13 +46,14 @@ function Activities() {
               <Stars filled={difficulty >= 4} />
               <Stars filled={difficulty >= 5} />
             </div>
-            <span>difficulty</span>
+            <span>Difficulty</span>
             <p>
               <span className={reloj}>&#x1F552;</span> {duration}
             </p>
-            <span>duration</span>
+            <span style={{fontSize: "0.7rem"}}>(hh:mm:ss)</span>
+            <span>Duration</span>
             <p>{season}</p>
-            <span>season</span>
+            <span>Season</span>
           </div>
         );
       })}

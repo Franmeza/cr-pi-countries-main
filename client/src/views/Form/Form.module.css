@@ -1,6 +1,7 @@
 .mainContainer {
   display: flex;
   justify-content: center;
+
 }
 
 .formContainer {
@@ -17,9 +18,9 @@
   font-size: 0.75rem;
   
 }
-.formContainer input:focus {
+/* .formContainer input:focus {
   border-color: #5570f1 !important;
-}
+} */
 
 .innerContainer {
   display: flex;
@@ -27,27 +28,29 @@
   align-items: flex-start;
   gap: 1rem;
 }
-.title {
-  color: #2b2f32;
-  font-family: system-ui;
+
+.innerContainer h4 {
+  color: #2b2f32;   
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 .innerContainer label {
   color: #5e6366;
-  font-family: system-ui;
+  font-family: 'Handlee';
   font-size: 0.75rem;
   font-weight: 400;
 }
 
-.innerContainer input {
-  
+.innerContainer input {  
   padding: 0.5rem 1rem;
-  width: 18rem;
-  font-family: system-ui;
+  width: 18rem; 
   border-radius: 0.5rem;
   border: 1px solid #cfd3d4;
+}
+
+.innerContainer input::placeholder{
+  color: #9e9e9e94;
 }
 
 .nameField,
@@ -65,27 +68,31 @@
 }
 .countriesSelect select {
   padding: 0.5rem 1rem;
-  font-family: system-ui;
+  font-family: 'Handlee';
   border-radius: 0.5rem;
   border: 1px solid #cfd3d4;
 }
 
 .selectedCountriesContainer {
-  display: flex;
+  display:inline-flex;
+  width: 18rem;
+  flex-wrap: wrap;
+  
 }
 
 .countryDiv {
   display: flex;
   align-items: center;
-  font-size: 12px;
-  margin-right: 10px;
+  font-size: 0.75rem;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
   border: 1px solid #cfd3d4;
-  border-radius: 10px;
-  padding: 6px;
+  border-radius: 0.625rem;
+  padding: 0.375rem;
 }
 
 .countryDiv button {
-  margin-left: 5px;
+  margin-left: 5px; 
   background: #5570f1;
   border: none;
   border-radius: 1rem;
@@ -101,7 +108,8 @@
   background: #5570f1;
   color: #fff;
   text-align: center;
-  font-family: system-ui;
+  font-family: 'Comic Neue';
   font-size: 1.25rem;
+  font-weight: 400;
   cursor: pointer;
 }

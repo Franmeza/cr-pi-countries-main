@@ -28,7 +28,7 @@ function Home() {
   const endIndex = startIndex + itemsPerPage;
   const countriesPerPage = countries.slice(startIndex, endIndex);
   const dispatch = useDispatch();
-
+console.log(countriesPerPage);
   useEffect(() => {
     setLoader(true);
     const begin = async () => {

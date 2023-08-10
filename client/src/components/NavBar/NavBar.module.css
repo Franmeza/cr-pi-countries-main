@@ -1,54 +1,48 @@
 .navBar {
   display: flex;
-  align-items: center; 
+  align-items: center;
   background-color: #0197f6;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
-  gap: 7rem;  
+  gap: 5rem;
 }
 
-.navBar img{
+.navBar img {
   margin-left: 2.5rem;
-margin-top: 0.8rem;
-}
-ul{
-  display: flex;
-  gap: 0.5rem;
+  margin-top: 0.8rem;
+  cursor: pointer;
 }
 ul {
-  /* display: flex; */
-
-
+  display: flex;
+  gap: 0.5rem;
 }
 
 li {
   list-style: none;
-  font-family: 'Comic Neue';
+  /* white-space: nowrap; */
+  font-family: "Comic Neue";
   font-weight: 700;
-  
 }
 
 .link {
-  list-style: none;
-  text-align: center;
-  padding: 12px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 0.75rem;
   color: white;
   text-decoration: none;
-  font-size: 17px;
+  gap: 0.2rem;
+  font-size: 1rem;
   border-radius: 0.5rem;
-}
-.navBar .searchBar{
-float: right;
 }
 
 @media screen and (max-width: 640px) {
   .navBar {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column; 
     gap: 0;
   }
-  .navBar img{
+  .navBar img {
     display: none;
   }
   ul {
@@ -56,10 +50,8 @@ float: right;
     flex-direction: column;
     align-items: center;
     padding: 0;
-    margin-top: 1.5rem;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    gap: 0;
   }
 }

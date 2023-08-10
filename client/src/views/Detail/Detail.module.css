@@ -1,68 +1,72 @@
-/* *{ border: 1px solid green;} */
-.allDetail{ 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.allDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.detailContainer{
-    border-radius: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-    border: 1px solid grey;
-    background-color: rgba(30, 143, 255, 0.654);   
-    /* padding: 0.5rem; */
-    width: 50%;
-    height: 45vh;
-    /* height: 300px;     */
+
+.detailContainer {
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
+  background-color: rgba(30, 143, 255, 0.654);
+  width: 50%;
+  height: 45vh;
 }
-.detailContainer p{
-    margin: 0 0 10px;
+
+.detailContainer span {
+  font-family: "Comic Neue";
+  font-weight: 700;
 }
-.imageContainer{
+
+.detailContainer p {
+  margin: 0 0 10px;
+  font-family: "Handlee";
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.imageContainer img {
+  padding: 0.5rem;
+  /* margin: 1rem; */
+  width: 50%;
+}
+
+.imageContainer h3 {
+  text-align: center;
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  margin-top: 0;
+  padding: 0.5rem;
+}
+
+.infoContainer {
+  display: flex;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-right: 1.8rem;
+  background-color: rgba(255, 255, 255, 0.803);
+  width: 80%;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+@media (max-width: 640px) {
+  .detailContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center ;
-    width: 80%;
-}
-.imageContainer img { 
-    padding: 0.5rem;
-    /* margin: 1rem; */
-    width: 50%; 
-}
-.imageContainer h3{
-    text-align: center;
-    color: white;
-    font-size: 1.3rem;
-    margin-bottom: 0.3rem;
-    margin-top: 0;
-    padding: 0.5rem;
-}
-
-.infoContainer{
-    display: flex;  
-    border-radius: 1rem;
-    padding: 1rem ;
-    margin-right: 1.8rem;
-    background-color: rgba(255, 255, 255, 0.803);
-    width: 80%;
-    gap: 2rem;
-    justify-content: space-around;
-    
-}
-
-@media (max-width:640px){
-   
-    .detailContainer{
-        display: flex;
-        flex-direction: column;
-        height: 72vh;     
-        width: 300px;
-    }
-    .infoContainer{        
-        margin: 0;
-    }
-
+    height: 69vh;
+    width: 300px;
+  }
+  .infoContainer {
+    margin: 0;
+  }
 }

@@ -91,8 +91,8 @@ function SidePanel({
           <br />
           <select name="orderBy" onChange={handleOrderPopulation}>
             <option value="selectOrder">Select order</option>
-            <option value="A">Less people</option>
-            <option value="D">More people</option>
+            <option value="A">Ascending</option>
+            <option value="D">Descending</option>
           </select>
         </div>
     </section>

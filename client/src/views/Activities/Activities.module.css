@@ -3,8 +3,6 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  height: 86vh;
- 
 }
 .activityCard {
   display: flex;
@@ -14,32 +12,32 @@
   background-color: white;
   border-radius: 1rem;
   width: 250px;
-  padding: 20px 0px;  
-  margin-bottom: 1rem;
-
+  padding: 1.2rem 0;
+  margin-bottom: 0.5rem;
 }
 .activityCard p {
   font-size: 2.5rem;
+  font-family: "Comic Neue";
   margin-bottom: 0;
+  margin-top: 1.5rem;
+}
+.activityCard span {
+  font-family: "Handlee";
 }
 .circleContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
-  /* position: relative; */
 }
 .circleContainer h1 {
   z-index: 2;
-  /* position: relative; */
+  font-size: 2rem;
 }
 .circle {
   width: 70px;
   height: 70px;
   border-radius: 50%;
   position: absolute;
-  /* top: 10px; */
-  /* left: 1.7rem; */
   z-index: 1;
 }
 .reloj {

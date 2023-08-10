@@ -3,7 +3,9 @@ const regexDifficulty = /^[1-5]$/;
 
 function validate(formData) {    
     
-    var errors = {};    
+    var errors = {};
+
+    if(formData.duplicatedActivity) alert(`${formData.name} is already added to ${formData.country}`)
     if(!formData.name) errors.name = 'Please enter an activity name';    
     if(!regexDifficulty.test(formData.difficulty)) errors.difficulty = 'Difficulty must be a number between 1 and 5';
     if(!formData.difficulty) errors.difficulty = 'Please enter difficulty level'

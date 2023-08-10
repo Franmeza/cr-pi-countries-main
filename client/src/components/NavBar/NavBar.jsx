@@ -1,27 +1,37 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import { filterCountries, fetchCountriesInfo } from "../../redux/actions";
 import { useDispatch } from "react-redux";
-import { navBar, link, searchBar} from "./NavBar.module.css";
+import { navBar, link } from "./NavBar.module.css";
 import { useLocation } from "react-router-dom";
-import logo from "../../assets/navbar_logo.png"
+import logo from "../../assets/navbar_logo.png";
 
 function NavBar() {
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const onSearch = (name) => {
+  const onSearchCountry = (name) => {
     name.lenght !== 0
-      ? 
-      dispatch(filterCountries(name))
+      ? dispatch(filterCountries(name))
       : dispatch(fetchCountriesInfo());
   };
- 
+
+  const toLandingPage = () => {
+    navigate("/");
+  };
+
   return (
     <nav className={navBar}>
-        <div>
-          <img width="150rem" height="150rem" src={logo} alt="" />
-        </div>
+      <div>
+        <img
+          width="150rem"
+          height="150rem"
+          src={logo}
+          alt="logo"
+          onClick={toLandingPage}
+        />
+      </div>
       <div>
         <ul>
           <li>
@@ -59,10 +69,10 @@ function NavBar() {
           </li>
         </ul>
       </div>
-      <div className={searchBar}>
+      <div>
         {location.pathname === "/activities" ||
         location.pathname === "/create" ? null : (
-          <SearchBar onSearch={onSearch} />
+          <SearchBar onSearchCountry={onSearchCountry} />
         )}
       </div>
     </nav>
