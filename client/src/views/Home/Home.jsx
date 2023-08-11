@@ -22,7 +22,7 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [aux, setAux] = useState(false);
   const [loader, setLoader] = useState(false);
-  const itemsPerPage = 12;
+  const itemsPerPage = 10;
   const totalPages = Math.ceil(countries.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
