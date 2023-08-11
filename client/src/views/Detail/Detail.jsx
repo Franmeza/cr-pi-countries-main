@@ -8,13 +8,15 @@ import {
 } from "./Detail.module.css";
 import axios from "axios";
 
+
 function Detail() {
   const { id } = useParams();
   const [countryDetails, setCountryDetails] = useState({});
-
+  const {VITE_URL} = import.meta.env
+  
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/countries/${id}`)
+      .get(`${VITE_URL}/countries/${id}`)
       .then(({ data }) => {
         if (data.name) {
           setCountryDetails({
