@@ -8,7 +8,7 @@ const {
 } = process.env;
 
 //CONECTION WITH DATABASE
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countriesdb_280d`, {
   logging: false, 
   native: false, 
 });
