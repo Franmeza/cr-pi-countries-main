@@ -8,11 +8,11 @@ export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 
-const URL = "http://localhost:3001";
+const {VITE_URL} = import.meta.env
 
 export const fetchCountriesInfo = () => async (dispatch) => {
   try {
-    const { data } = await axios.get(`${URL}/countries`);
+    const { data } = await axios.get(`${VITE_URL}/countries`);
     return dispatch({
       type: FETCH_INFO,
       payload: data,
@@ -25,7 +25,7 @@ export const fetchCountriesInfo = () => async (dispatch) => {
 export const getActivities = () => async (dispatch) => {
   try {
     
-    const { data } = await axios.get(`${URL}/activities`);
+    const { data } = await axios.get(`${VITE_URL}/activities`);
     return dispatch({
       type: GET_ACTIVITIES,
       payload: data,
@@ -39,7 +39,7 @@ export const filterCountries = (name) => async (dispatch) => {
  
   try {  
             
-      const { data } = await axios.get(`${URL}/countries?name=${name}`);
+      const { data } = await axios.get(`${VITE_URL}/countries?name=${name}`);
   
       return dispatch({
         type: FILTER_COUNTRIES,

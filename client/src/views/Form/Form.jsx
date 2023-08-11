@@ -17,7 +17,7 @@ import {
 import validate from "./validation";
 
 const seasonsOptions = ["Spring", "Summer", "Autum", "Winter"];
-const URL = "http://localhost:3001/activities";
+const {VITE_URL} = import.meta.env
 
 const Form = () => {
   const countries = useSelector((state) => state.allCountries);
@@ -43,7 +43,7 @@ const Form = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value.toLowerCase(),
+      [name]: value,
     });
     setErrors(
       validate({
@@ -108,7 +108,7 @@ const Form = () => {
     e.preventDefault();
 
     axios
-      .post(URL, formData)
+      .post(`${VITE_URL}/activities`, formData)
       .then((response) => alert(response.data))
       .catch((error) => alert(error.response.data));
   };
