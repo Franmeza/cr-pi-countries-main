@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   mainContainer,
   formContainer,
@@ -15,12 +15,14 @@ import {
   countriesSelect,
 } from "./Form.module.css";
 import validate from "./validation";
+import { getActivities } from "../../redux/actions";
 
 const seasonsOptions = ["Spring", "Summer", "Autum", "Winter"];
 const {VITE_URL} = import.meta.env
 
 const Form = () => {
   const countries = useSelector((state) => state.allCountries);
+  const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({
     name: "",
@@ -41,9 +43,10 @@ const Form = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value
     });
     setErrors(
       validate({
@@ -55,7 +58,9 @@ const Form = () => {
 
   const handleSelectedCountries = (e) => {
     const value = e.target.value;
-    var flag = false;
+    const property = e.target.name
+    
+    let flag = false;
     countries.forEach((country) => {
       if (country.id === value) {
         country.Activities.forEach((activity) => {
@@ -74,12 +79,12 @@ const Form = () => {
       if (value === "") return;
       setFormData({
         ...formData,
-        countries: [...formData.countries, value],
+        [property]: [...formData.countries, value],
       });
       setErrors(
         validate({
           ...formData,
-          countries: [...formData.countries, value],
+          [property]: [...formData.countries, value],
         })
       );
     } else {
@@ -104,13 +109,15 @@ const Form = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
-    axios
+    await axios
       .post(`${VITE_URL}/activities`, formData)
       .then((response) => alert(response.data))
       .catch((error) => alert(error.response.data));
+
+    dispatch(getActivities()) // to update activities in my global state after creation
   };
 
   return (
@@ -162,7 +169,7 @@ const Form = () => {
                   id={season}
                   name="season"
                   value={season}
-                  checked={formData.season === season}
+                  // checked={formData.season === season}
                   onChange={handleInputChange}
                 />
                 <label htmlFor={season}>{season}</label>

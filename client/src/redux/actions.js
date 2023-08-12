@@ -7,6 +7,7 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
+export const REMOVE_FILTER = "REMOVE_FILTER"
 
 const {VITE_URL} = import.meta.env
 
@@ -80,3 +81,9 @@ export const orderByPopulation = (order) => {
     payload: order,
   };
 };
+
+export const removeFilter = () =>{
+  return{
+    type: REMOVE_FILTER
+  }
+}

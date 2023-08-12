@@ -17,7 +17,7 @@ const getCountryById = async (countryId) => {
     },
   });
   if (!country) throw Error("Country does not exist, please enter a valid ID");
-  console.log(country);
+
   return country;
 };
 

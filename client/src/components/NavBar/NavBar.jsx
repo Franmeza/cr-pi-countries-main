@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
-import { filterCountries, fetchCountriesInfo } from "../../redux/actions";
+import { filterCountries, fetchCountriesInfo, removeFilter } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { navBar, link } from "./NavBar.module.css";
 import { useLocation } from "react-router-dom";
@@ -41,6 +41,7 @@ function NavBar() {
               style={({ isActive }) => {
                 return { backgroundColor: isActive ? "#FFC759" : "" };
               }}
+              onClick={()=>dispatch(removeFilter())}
             >
               <i className="fa fa-fw fa-home"></i> HOME
             </NavLink>
@@ -71,7 +72,7 @@ function NavBar() {
       </div>
       <div>
         {location.pathname === "/activities" ||
-        location.pathname === "/create" ? null : (
+        location.pathname === "/create" ||  location.pathname.startsWith("/detail") ? null : (
           <SearchBar onSearchCountry={onSearchCountry} />
         )}
       </div>

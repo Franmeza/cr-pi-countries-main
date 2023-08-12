@@ -12,12 +12,7 @@ countriesRouter.get("/", async (req, res) => {
     const result = name
       ? await getCountryByName(name)
       : await getCountries();
-      // if(result.length === 0) {
-      //   res.status(400).json({result:result, message:"Country name does not exist"})
-      //   // throw Error("No country/ies found")
-      // }else{
-        
-      // }
+     
       res.status(200).json(result);
     } catch (error) {     
      

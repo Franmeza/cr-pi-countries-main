@@ -6,6 +6,7 @@ import {
   FILTER_BY_ACTIVITY,
   ORDER_BY_NAME,
   ORDER_BY_POPULATION,
+  REMOVE_FILTER
 } from "./actions";
 
 const initialState = {
@@ -80,7 +81,13 @@ export default function reducer(state = initialState, { type, payload }) {
           return 0;
         }),
       };
-
+    
+    case REMOVE_FILTER:{
+      return{
+        ...state,
+        countries: state.allCountries
+      }
+    }
     default:
       return { ...state };
   }

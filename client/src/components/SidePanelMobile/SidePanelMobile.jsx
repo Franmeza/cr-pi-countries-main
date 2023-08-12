@@ -2,7 +2,6 @@ import { sidePanelMobile } from "./SidePanelMobile.module.css";
 import PropTypes from "prop-types";
 import { fetchCountriesInfo } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-
 function SidePanelMobile({
   filterByContinent,
   filterByActivity,

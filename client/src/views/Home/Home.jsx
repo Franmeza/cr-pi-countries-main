@@ -8,6 +8,7 @@ import {
   orderByPopulation,
   fetchCountriesInfo,
   getActivities,
+  removeFilter
 } from "../../redux/actions";
 import { homeContainer, cardsPagination, pagination } from "./Home.module.css";
 import { useState, useEffect } from "react";
@@ -17,7 +18,7 @@ import Loader from "../../components/Loader/Loader";
 
 function Home() {
   const countries = useSelector((state) => state.countries);
-  // const activities = useSelector((state)=> state.activities)
+  const activities = useSelector((state)=> state.activities)
   const [displayPanel, setDisplayPanel] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [aux, setAux] = useState(false);
@@ -27,20 +28,20 @@ function Home() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const countriesPerPage = countries.slice(startIndex, endIndex);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     setLoader(true);
     const begin = async () => {
-      await dispatch(fetchCountriesInfo());
-      setTimeout(() => {
-        setLoader(false);
-      }, 1500);
-      await dispatch(getActivities());
+      if(countries.length === 0) await dispatch(fetchCountriesInfo());
+      if(activities.length === 0) await dispatch(getActivities());
     };
-    begin();
-    // .then(res => res &&
-  }, [dispatch]);
+    setTimeout(() => {
+      setLoader(false);
+    }, 1500);
+    begin();  
+
+  }, [dispatch, countries.length, activities.length]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -51,7 +52,7 @@ function Home() {
   };
 
   const clearFilter = () => {
-    dispatch(fetchCountriesInfo());
+    dispatch(removeFilter());
   };
 
   const filterCountriesByContinent = (continent) => {
