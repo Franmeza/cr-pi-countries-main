@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   detailContainer,
   allDetail,
@@ -13,7 +13,7 @@ function Detail() {
   const { id } = useParams();
   const [countryDetails, setCountryDetails] = useState({});
   const {VITE_URL} = import.meta.env
-  
+  const navigate = useNavigate()
   useEffect(() => {
     axios
       .get(`${VITE_URL}/countries/${id}`)
@@ -36,9 +36,13 @@ function Detail() {
       });
   }, [id]);
 
+  const goBack =()=>{
+    navigate("/home")
+  }
   return (
     <div className={allDetail}>
       <div className={detailContainer}>
+        <button onClick={goBack}> {"<<"} Home </button>
         <div className={imageContainer}>
           <img src={countryDetails.coatOfArms} alt="imagen" />
           <h3>{countryDetails.name}</h3>

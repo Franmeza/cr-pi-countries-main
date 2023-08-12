@@ -41,7 +41,7 @@ function Home() {
     }, 1500);
     begin();  
 
-  }, [dispatch, countries.length, activities.length]);
+  }, [dispatch, activities.length]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -52,7 +52,7 @@ function Home() {
   };
 
   const clearFilter = () => {
-    dispatch(removeFilter());
+    dispatch(removeFilter());    
   };
 
   const filterCountriesByContinent = (continent) => {

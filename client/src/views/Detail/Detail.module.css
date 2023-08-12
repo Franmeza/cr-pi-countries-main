@@ -15,6 +15,19 @@
   height: 45vh;
 }
 
+.detailContainer button{  
+  position: absolute;  
+  top: 29%;
+  right: 27%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: "Comic Neue";
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+}
+
 .detailContainer span {
   font-family: "Comic Neue";
   font-weight: 700;
@@ -63,8 +76,12 @@
   .detailContainer {
     display: flex;
     flex-direction: column;
-    height: 69vh;
+    height: 60vh;
     width: 300px;
+  }
+  .detailContainer button{
+    top: 25%;
+    right: 18%
   }
   .infoContainer {
     margin: 0;

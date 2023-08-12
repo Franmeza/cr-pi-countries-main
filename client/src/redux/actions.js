@@ -7,9 +7,9 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
-export const REMOVE_FILTER = "REMOVE_FILTER"
+export const REMOVE_FILTER = "REMOVE_FILTER";
 
-const {VITE_URL} = import.meta.env
+const { VITE_URL } = import.meta.env;
 
 export const fetchCountriesInfo = () => async (dispatch) => {
   try {
@@ -25,7 +25,6 @@ export const fetchCountriesInfo = () => async (dispatch) => {
 
 export const getActivities = () => async (dispatch) => {
   try {
-    
     const { data } = await axios.get(`${VITE_URL}/activities`);
     return dispatch({
       type: GET_ACTIVITIES,
@@ -37,20 +36,15 @@ export const getActivities = () => async (dispatch) => {
 };
 
 export const filterCountries = (name) => async (dispatch) => {
- 
-  try {  
-            
-      const { data } = await axios.get(`${VITE_URL}/countries?name=${name}`);
-  
-      return dispatch({
-        type: FILTER_COUNTRIES,
-        payload: data,
-      });
+  try {
+    const { data } = await axios.get(`${VITE_URL}/countries?name=${name}`);
 
-    
-  } catch (error) {   
-    throw Error(error.message) 
-    
+    return dispatch({
+      type: FILTER_COUNTRIES,
+      payload: data,
+    });
+  } catch (error) {
+    throw Error(error.message);
   }
 };
 
@@ -82,8 +76,8 @@ export const orderByPopulation = (order) => {
   };
 };
 
-export const removeFilter = () =>{
-  return{
-    type: REMOVE_FILTER
-  }
-}
+export const removeFilter = () => {
+  return {
+    type: REMOVE_FILTER,
+  };
+};

@@ -7,7 +7,24 @@
     width: 150px;
     height: auto;    
 }
+.clearFilters{
+  display: flex;
+  /* align-items: center; */
+  font-size: 0.83rem;
+  font-family: 'Comic Neue';
+  margin-top: 0.5rem;
 
+  border-radius: 0.625rem;
+  
+}
+.clearFilters button{
+  margin-left: 5px; 
+  background: #5570f1;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+}
 .sidePanelContainer select {
   padding: 0.3rem 1rem 0.3rem 0.7rem;
   border-radius: 0.5rem;  
@@ -25,6 +42,7 @@
 
 .sidePanelContainer h4 {
   color: #333333;
+  margin-top: 0.8rem;
   margin-bottom: 5px;
 }
 

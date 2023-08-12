@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { sidePanelContainer } from "./SidePanel.module.css";
+import { sidePanelContainer,/*  clearFilters */ } from "./SidePanel.module.css";
 import { removeFilter } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 function SidePanel({
@@ -9,6 +9,7 @@ function SidePanel({
   orderByPopulation,
 }) {
   const activities = useSelector((state) => state.activities);
+  // const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
 
   let activitiesSet = new Set();
@@ -17,7 +18,7 @@ function SidePanel({
     activitiesSet.add(element.name);
   });
 
-  const handleContinentSelected = (e) => {
+  const handleContinentSelected = (e) => {      
     const optionSelected = e.target.value;
     if (optionSelected === "Continent") {
       dispatch(removeFilter());
@@ -34,6 +35,10 @@ function SidePanel({
       filterByActivity(activitySelected);
     }
   };
+  
+    // const clearFilter = () => {     
+    //   dispatch(removeFilter());
+    // };
 
   const handleOrderName = (e) => {
     if (e.target.value === "selectOrder") {
@@ -49,12 +54,19 @@ function SidePanel({
       orderByPopulation(e.target.value);
     }
   };
+
   return (
     <section className={sidePanelContainer}>
       <div>
+      
+      {/* {countries.length !== 250 ? (
+          <div className={clearFilters}>Clear filters
+          <button onClick={clearFilter}>x</button>
+          </div>
+        ) : null} */}
         <h4>Filter by:</h4>
         <label htmlFor="continents">Continents</label>
-        <select name="orderByContinent" onChange={handleContinentSelected}>
+        <select name="orderByContinent"  onChange={handleContinentSelected}>
           <option value="Continent">All Continents</option>
           <option value="Africa">Africa</option>
           <option value="Americas">Americas</option>
