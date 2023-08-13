@@ -8,7 +8,7 @@ import {
   orderByPopulation,
   fetchCountriesInfo,
   getActivities,
-  removeFilter
+  removeFilter,
 } from "../../redux/actions";
 import { homeContainer, cardsPagination, pagination } from "./Home.module.css";
 import { useState, useEffect } from "react";
@@ -18,7 +18,7 @@ import Loader from "../../components/Loader/Loader";
 
 function Home() {
   const countries = useSelector((state) => state.countries);
-  const activities = useSelector((state)=> state.activities)
+  const activities = useSelector((state) => state.activities);
   const [displayPanel, setDisplayPanel] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [aux, setAux] = useState(false);
@@ -28,19 +28,21 @@ function Home() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const countriesPerPage = countries.slice(startIndex, endIndex);
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setLoader(true);
     const begin = async () => {
-      if(countries.length === 0) await dispatch(fetchCountriesInfo());
-      if(activities.length === 0) await dispatch(getActivities());
-    };
-    setTimeout(() => {
-      setLoader(false);
-    }, 1500);
-    begin();  
+      if (countries.length === 0) await dispatch(fetchCountriesInfo());
 
+      if (activities.length === 0) await dispatch(getActivities());
+
+      setTimeout(() => {
+        setLoader(false);
+      }, 1500);
+    };
+
+    begin();
   }, [dispatch, activities.length]);
 
   const handlePageChange = (pageNumber) => {
@@ -52,7 +54,7 @@ function Home() {
   };
 
   const clearFilter = () => {
-    dispatch(removeFilter());    
+    dispatch(removeFilter());
   };
 
   const filterCountriesByContinent = (continent) => {
@@ -82,7 +84,11 @@ function Home() {
           <span onClick={clearFilter}>Clear filter</span>
         ) : null}
 
-        <div>{countries.length === 0 && <p>No countries to display, please try with another name</p>}</div>
+        <div>
+          {countries.length === 0 && (
+            <p>No countries to display, please try with another name</p>
+          )}
+        </div>
 
         <div className={cardsPagination}>
           <Cards countriesPerPage={countriesPerPage} />
