@@ -24,6 +24,12 @@ const Form = () => {
   const countries = useSelector((state) => state.allCountries);
   const dispatch = useDispatch()
 
+ const sortedCountries = [...countries].sort((a, b) => {
+  if (a.name > b.name) return 1;
+  if (b.name > a.name) return -1;
+  return 0;
+});
+
   const [formData, setFormData] = useState({
     name: "",
     difficulty: "",
@@ -176,8 +182,7 @@ const Form = () => {
                   type="radio"
                   id={season}
                   name="season"
-                  value={season}
-                  // checked={formData.season === season}
+                  value={season}                  
                   onChange={handleInputChange}
                 />
                 <label htmlFor={season}>{season}</label>
@@ -194,7 +199,7 @@ const Form = () => {
               onChange={handleSelectedCountries}
             >
               <option value="">Select country/ies</option>
-              {countries.map((country, index) => (
+              {sortedCountries.map((country, index) => (
                 <option key={index} value={country.id}>
                   {country.name}
                 </option>
