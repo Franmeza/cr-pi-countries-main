@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { sidePanelContainer,/*  clearFilters */ } from "./SidePanel.module.css";
+import { sidePanelContainer, clearFilters } from "./SidePanel.module.css";
 import { removeFilter } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 function SidePanel({
@@ -9,7 +9,7 @@ function SidePanel({
   orderByPopulation,
 }) {
   const activities = useSelector((state) => state.activities);
-  // const countries = useSelector((state) => state.countries);
+  const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
 
   let activitiesSet = new Set();
@@ -36,9 +36,9 @@ function SidePanel({
     }
   };
   
-    // const clearFilter = () => {     
-    //   dispatch(removeFilter());
-    // };
+    const clearFilter = () => {     
+      dispatch(removeFilter());
+    };
 
   const handleOrderName = (e) => {
     if (e.target.value === "selectOrder") {
@@ -59,11 +59,11 @@ function SidePanel({
     <section className={sidePanelContainer}>
       <div>
       
-      {/* {countries.length !== 250 ? (
+      {countries.length !== 250 ? (
           <div className={clearFilters}>Clear filters
           <button onClick={clearFilter}>x</button>
           </div>
-        ) : null} */}
+        ) : null}
         <h4>Filter by:</h4>
         <label htmlFor="continents">Continents</label>
         <select name="orderByContinent"  onChange={handleContinentSelected}>

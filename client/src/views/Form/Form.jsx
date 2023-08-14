@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   mainContainer,
@@ -15,7 +15,7 @@ import {
   countriesSelect,
 } from "./Form.module.css";
 import validate from "./validation";
-import { getActivities } from "../../redux/actions";
+import { getActivities, fetchCountriesInfo } from "../../redux/actions";
 
 const seasonsOptions = ["Spring", "Summer", "Autum", "Winter"];
 const {VITE_URL} = import.meta.env
@@ -40,6 +40,10 @@ const Form = () => {
     countries: "",
     duplicatedActivity: "",
   });
+  
+  useEffect(()=>{
+    if (countries.length === 0) dispatch(fetchCountriesInfo());
+  },[dispatch,countries.length])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -48,12 +52,16 @@ const Form = () => {
       ...formData,
       [name]: value
     });
+   
+
     setErrors(
       validate({
         ...formData,
         [name]: value,
       })
     );
+
+  
   };
 
   const handleSelectedCountries = (e) => {
@@ -147,7 +155,7 @@ const Form = () => {
               value={formData.difficulty}
               onChange={handleInputChange}
             />
-            {errors.difficulty ? <span>{errors.difficulty}</span> : null}
+            {errors.difficulty !== "" ? <span>{errors.difficulty}</span> : null}
           </div>
           <div className={durationField}>
             <label htmlFor="duration">Duration (hh:mm):</label>

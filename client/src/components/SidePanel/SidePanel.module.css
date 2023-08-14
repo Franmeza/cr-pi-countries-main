@@ -1,24 +1,21 @@
-.sidePanelContainer{
-    margin-left: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    margin-right: 20px;  
-    width: 150px;
-    height: auto;    
-}
-.clearFilters{
+.sidePanelContainer {
+  margin-left: 2.5rem;
   display: flex;
-  /* align-items: center; */
-  font-size: 0.83rem;
-  font-family: 'Comic Neue';
-  margin-top: 0.5rem;
-
-  border-radius: 0.625rem;
-  
+  flex-direction: column;
+  height: auto;
+  margin-right: 20px;
+  width: 150px;
+  height: auto;
 }
-.clearFilters button{
-  margin-left: 5px; 
+.clearFilters {
+  display: flex;
+  font-size: 0.83rem;
+  font-family: "Comic Neue";
+  margin-top: 0.5rem;
+  border-radius: 0.625rem;
+}
+.clearFilters button {
+  margin-left: 5px;
   background: #5570f1;
   border: none;
   border-radius: 50%;
@@ -27,11 +24,10 @@
 }
 .sidePanelContainer select {
   padding: 0.3rem 1rem 0.3rem 0.7rem;
-  border-radius: 0.5rem;  
+  border-radius: 0.5rem;
   border: 1px solid #cfd3d4;
-  font-family: 'Handlee';
+  font-family: "Handlee";
   margin-bottom: 0.5rem;
-
 }
 /* .sidePanelContainer select option:hover{  
   background-color: #ff0000;
@@ -47,7 +43,7 @@
 }
 
 label {
-  font-family:'Comic Neue';
+  font-family: "Comic Neue";
   color: #666666;
 }
 
