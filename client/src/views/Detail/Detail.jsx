@@ -18,8 +18,10 @@ function Detail() {
     axios
       .get(`${VITE_URL}/countries/${id}`)
       .then(({ data }) => {
+       
         if (data.name) {
           setCountryDetails({
+            id: data.id,
             name: data.name.toUpperCase(),
             coatOfArms: data.coatOfArms,
             continent: data.continent,
@@ -49,6 +51,10 @@ function Detail() {
         </div>
         <div className={infoContainer}>
           <div>
+            <span>
+              <strong>Id: </strong>
+            </span>
+            <p>{countryDetails.id}</p>
             <span>
               <strong>Continent: </strong>
             </span>
