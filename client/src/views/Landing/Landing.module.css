@@ -27,7 +27,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-align: center;
-  animation: moverTitulo 1s infinite;
+  animation: buttonMovement 1s infinite;
  font-family: 'Comic Neue', cursive;
  font-weight: 600;
   font-size: 20px;   
@@ -70,7 +70,7 @@
 }
 
 
-@keyframes moverTitulo {
+@keyframes buttonMovement {
   0%, 100% {
     transform: translateY(0);
   }
