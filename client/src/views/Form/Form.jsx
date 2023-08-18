@@ -125,13 +125,19 @@ const Form = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    if(errors.name !== "" || errors.countries !== "" || errors.difficulty !== "" || errors.season !==""){
 
-    await axios
-      .post(`${VITE_URL}/activities`, formData)
-      .then((response) => alert(response.data))
-      .catch((error) => alert(error.response.data));
+      alert('Please fill out missing fields')
+    }else{
 
-    dispatch(getActivities()) // to update activities in my global state after creation
+      await axios
+        .post(`${VITE_URL}/activities`, formData)
+        .then((response) => alert(response.data))
+        .catch((error) => alert(error.response.data));
+  
+      dispatch(getActivities()) // to update activities in my global state after creation
+    }
+    
   };
 
   return (

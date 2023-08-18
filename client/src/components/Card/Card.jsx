@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 function Card({ id, name, continent, flagImage }) {
   return (
     <div className={cardContainer}>
+      <Link className={link} to={`/detail/${id}`}>
       <div className={imageContainer}>
         <img width="100%" height="180px" src={flagImage} alt={name} />
       </div>
-      <Link className={link} to={`/detail/${id}`}>
         <h3 className={nameTitle}>{name.toUpperCase()}</h3>
-      </Link>
       <p>&#x1F4CD; {continent}</p>
+      </Link>
     </div>
   );
 }
