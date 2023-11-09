@@ -31,15 +31,15 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoader(true);
+   //x setLoader(true);
     const begin = async () => {
       if (countries.length === 0) await dispatch(fetchCountriesInfo());
 
       if (activities.length === 0) await dispatch(getActivities());
 
-      setTimeout(() => {
-        setLoader(false);
-      }, 1500);
+     // setTimeout(() => {
+      //  setLoader(false);
+     // }, 1500);
     };
 
     begin();
