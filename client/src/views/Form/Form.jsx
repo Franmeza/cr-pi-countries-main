@@ -125,7 +125,7 @@ const Form = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    if(errors.name !== "" || errors.countries !== "" || errors.difficulty !== "" || errors.season !==""){
+    if(Object.keys(errors !== 0){
 
       alert('Please fill out missing fields')
     }else{
