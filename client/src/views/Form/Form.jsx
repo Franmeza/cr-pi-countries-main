@@ -125,7 +125,7 @@ const Form = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    if(Object.keys(errors !== 0){
+    if(Object.keys(errors).length !== 0){
 
       alert('Please fill out missing fields')
     }else{
