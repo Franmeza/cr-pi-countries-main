@@ -37,9 +37,9 @@ function Home() {
 
       if (activities.length === 0) await dispatch(getActivities());
 
-     setTimeout(() => {
-      setLoader(false);
-     }, 1500);
+      setTimeout(() => {
+        setLoader(false);
+      }, 1500);
     };
 
     begin();

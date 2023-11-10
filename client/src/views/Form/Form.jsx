@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   mainContainer,
   formContainer,
-  innerContainer,  
+  innerContainer,
   nameField,
   difficultyField,
   durationField,
@@ -18,17 +18,17 @@ import validate from "./validation";
 import { getActivities, fetchCountriesInfo } from "../../redux/actions";
 
 const seasonsOptions = ["Spring", "Summer", "Autum", "Winter"];
-const {VITE_URL} = import.meta.env
+const { VITE_URL } = import.meta.env;
 
 const Form = () => {
   const countries = useSelector((state) => state.allCountries);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
- const sortedCountries = [...countries].sort((a, b) => {
-  if (a.name > b.name) return 1;
-  if (b.name > a.name) return -1;
-  return 0;
-});
+  const sortedCountries = [...countries].sort((a, b) => {
+    if (a.name > b.name) return 1;
+    if (b.name > a.name) return -1;
+    return 0;
+  });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -46,19 +46,18 @@ const Form = () => {
     countries: "",
     duplicatedActivity: "",
   });
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     if (countries.length === 0) dispatch(fetchCountriesInfo());
-  },[dispatch,countries.length])
+  }, [dispatch, countries.length]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
+
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
-   
 
     setErrors(
       validate({
@@ -66,14 +65,12 @@ const Form = () => {
         [name]: value,
       })
     );
-
-  
   };
 
   const handleSelectedCountries = (e) => {
     const value = e.target.value;
-    const property = e.target.name
-    
+    const property = e.target.name;
+
     let flag = false;
     countries.forEach((country) => {
       if (country.id === value) {
@@ -119,25 +116,23 @@ const Form = () => {
       validate({
         ...formData,
         countries: deletedCountry,
-      })
+      }) //
     );
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
+    console.log(errors);
     e.preventDefault();
-    if(Object.keys(errors).length !== 0){
-
-      alert('Please fill out missing fields')
-    }else{
-
+    if (Object.keys(errors).length !== 0) {
+      alert("Please fill out missing fields");
+    } else {
       await axios
         .post(`${VITE_URL}/activities`, formData)
         .then((response) => alert(response.data))
         .catch((error) => alert(error.response.data));
-  
-      dispatch(getActivities()) // to update activities in my global state after creation
+
+      dispatch(getActivities()); // to update activities in my global state after creation
     }
-    
   };
 
   return (
@@ -188,7 +183,7 @@ const Form = () => {
                   type="radio"
                   id={season}
                   name="season"
-                  value={season}                  
+                  value={season}
                   onChange={handleInputChange}
                 />
                 <label htmlFor={season}>{season}</label>

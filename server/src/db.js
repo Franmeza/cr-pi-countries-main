@@ -10,13 +10,7 @@ const {
 //CONECTION WITH DATABASE
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
   logging: false, 
-  native: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false, // Solo si tu certificado SSL no es de confianza
-    },
-  },
+  native: false, 
 });
 const basename = path.basename(__filename);
 
