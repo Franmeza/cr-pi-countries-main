@@ -34,12 +34,12 @@ function Home() {
     setLoader(true);
     const begin = async () => {
       if (countries.length === 0) await dispatch(fetchCountriesInfo());
+      setLoader(false);
 
       if (activities.length === 0) await dispatch(getActivities());
 
-      setTimeout(() => {
-        setLoader(false);
-      }, 1500);
+      // setTimeout(() => {
+      // }, 1500);
     };
 
     begin();
