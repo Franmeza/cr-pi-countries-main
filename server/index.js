@@ -9,7 +9,7 @@ const countriesLoader = require("./src/utils/loader");
 
 countriesLoader();
 conn
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     server.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);
